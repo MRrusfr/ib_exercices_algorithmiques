@@ -63,63 +63,60 @@ function digitButtonCommon (x) {
 	}
 }
 
-let txtOne = document.getElementById('one').textContent;
 let btnOne = document.getElementById('one');
-
 btnOne.addEventListener("click", function digitButton () {
     digitButtonCommon(1);
 });
 
-let txtTwo = document.getElementById('two').textContent;
 let btnTwo = document.getElementById('two');
 
 btnTwo.addEventListener("click", function digitButton () {
     digitButtonCommon(2);
 });
-let txtThree = document.getElementById('three').textContent;
+
 let btnThree = document.getElementById('three');
 
 btnThree.addEventListener("click", function digitButton () {
     digitButtonCommon(3);
 });
-let txtFour = document.getElementById('four').textContent;
+
 let btnFour = document.getElementById('four');
 
 btnFour.addEventListener("click", function digitButton () {
     digitButtonCommon(4);
 });
 
-let txtFive = document.getElementById('five').textContent;
+
 let btnFive = document.getElementById('five');
 
 btnFive.addEventListener("click", function digitButton () {
     digitButtonCommon(5);
 });
-let txtSix = document.getElementById('six').textContent;
+
 let btnSix = document.getElementById('six');
 
 btnSix.addEventListener("click", function digitButton () {
     digitButtonCommon(6);
 });
-let txtSeven = document.getElementById('seven').textContent;
+
 let btnSeven = document.getElementById('seven');
 
 btnSeven.addEventListener("click", function digitButton () {
     digitButtonCommon(7);
 });
-let txtEight = document.getElementById('eight').textContent;
+
 let btnEight = document.getElementById('eight');
 
 btnEight.addEventListener("click", function digitButton () {
     digitButtonCommon(8);
 });
-let txtNine = document.getElementById('nine').textContent;
+
 let btnNine = document.getElementById('nine');
 
 btnNine.addEventListener("click", function digitButton () {
     digitButtonCommon(9);
 });
-let txtZero = document.getElementById('zero').textContent;
+
 let btnZero = document.getElementById('zero');
 
 btnZero.addEventListener("click", function digitButton () {
@@ -162,12 +159,9 @@ document.getElementById('division').addEventListener("click", function division(
 });
 document.getElementById('moyenne').addEventListener("click", function moyenne() { 
     x = parseInt(document.getElementById("result").value);
-    console.log("mon array" + tableOfValues);
     
     tableOfValues.push(x);    
-    tableOfValues.forEach((el) => result += el);
-    result = (result/tableOfValues.length);
-    document.getElementById("result").value = result;
+    operator = "m"
 	resultDone = true;
 });
 document.getElementById('pourcentage').addEventListener("click", function pourcentage() { 
@@ -183,21 +177,22 @@ document.getElementById('equalButton').addEventListener("click", function equalB
     y = parseInt(document.getElementById("result").value);
 
     switch (operator) {
-        case '+':
-            console.log(operator, "should be +");            
+        case '+':      
             result = x + y;
             break;
-        case '-':    
-            console.log(operator, "should be -");
+        case '-':
             result = x - y;
             break;
         case '*':
-            console.log(operator, "should be *");
             result = x * y;
             break;
         case '/':
-            console.log(operator, "should be /");
             result = x / y;
+            break;
+        case 'm':
+            tableOfValues.forEach((el) => result += el);
+            result = (result/tableOfValues.length);
+            document.getElementById("result").value = result;
             break;
     }
 
